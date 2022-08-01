@@ -1,0 +1,52 @@
+
+
+<nav class="navbar navbar-expand-sm bg-light">
+  <div class="container-fluid mx-5 px-5">
+    <a class="navbar-brand" href="/">Budget App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <% if current_user %>
+        <li class="nav-item">
+        <%= link_to "My food", user_foods_path(current_user.id), class:'nav-link'%>
+        
+        </li>
+        <li class="nav-item">
+        <%= link_to "My Recipes", user_recipes_path(current_user.id), class:'nav-link'%>
+         
+        </li>
+        <%end %>
+        <li class="nav-item">
+          
+        </li>
+      </ul>
+    
+
+      <div class="d-flex">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <% if current_user %>
+          <li class="nav-item">
+            <p class="nav-link" ><%= current_user.name %></p>
+          </li>
+          
+          <li class="nav-item">
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class:"btn" %>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign in", new_user_session_path, class:"nav-link" %>
+          </li>
+          <li class="nav-item">
+          <%= link_to "Sign up",new_user_registration_path, class:"nav-link" %>
+        </li>
+
+          <%end%>
+        </ul>
+      </div>
+    </div>
+  </div>
+        
+</nav>
