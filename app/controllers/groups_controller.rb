@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @group =Group.all
     @user=current_user
@@ -21,8 +22,16 @@ class GroupsController < ApplicationController
       flash[:alert]="somethings wrong"
     end
   end
+
+  def destroy 
+    @group= Group.find(params[:id])
+    if @group.destroy
+      flash[:notice]="Category successfully Deleted"
+      redirect_to user_groups_path
+    end
+  end
   private 
   def group_params
-    params.require(:group).permit(:name, :icon)
+    params.require(:group).permit(:name, :image)
   end
 end
