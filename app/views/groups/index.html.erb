@@ -3,4 +3,4 @@
     <%= link_to g.name, user_group_entities_path(current_user, g.id) %>
 <%end%>
 
-<%= link_to "Add New Category", new_user_group_path(current_user), class:"nav-link"%>
+<%= link_to "Add New Category", new_user_group_path(@user), class:"nav-link"%>
