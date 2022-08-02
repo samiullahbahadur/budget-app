@@ -1,2 +1,19 @@
-<h1>Entities#new</h1>
-<p>Find me in app/views/entities/new.html.erb</p>
+<h1>Add NEW Entities</h1>
+
+<%= form_with model: @entity, url: user_group_entities_path   do |e| %>
+    <div class="mb-3">
+        <%= e.label :Name, class:"form-label" %><br />
+        <%= e.text_field :name, autofocus: true, class:"form-control",  placeholder:"Enter Entity Name" %>
+    </div> 
+    <div class="mb-3">
+        <%= e.label :Amount, class:"form-label" %><br />
+        <%= e.number_field :amount, autofocus: true, class:"form-control",  placeholder:"Enter Entity Amount" %>
+     </div>
+
+     <div class="mb-3">
+    <%= e.submit "Add Entity", class:"btn btn-primary" %>
+     </div>
+  
+
+    <% end %>
+
