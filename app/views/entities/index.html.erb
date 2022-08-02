@@ -1,3 +1,36 @@
-<h1>All Entities</h1>
 
-<%= link_to "Add new Entities", new_user_group_entity_path , class:'nav-link' %>
+<h1 align="center"> All Entities</h1>
+
+ 
+<span   align="right">
+<%= link_to "Add new Entities", new_user_group_entity_path , class:'nav-link' %></span>
+ 
+
+<table  class="ui fixed table  table-bordered table-striped ">
+<thead>
+<tr>
+<th> Name</th>
+<th> Amount</th>
+
+<th> Action</th>
+<span> Totle:  <%= @total %></sapn>
+
+</tr>
+</thead>
+<tbody>
+
+<% @entity.each do |e|%>
+
+    <tr>
+       <td> <%=  e.name %> </td>
+       <td> <%=  e.amount %> </td>
+     
+     <td>
+       <%= button_to 'Remove', user_group_entity_path(e.user_id, e.group_id, e.id), method: :delete,   class:' btn btn-outline-danger btn-sm' %>  </td>
+
+     </tr>
+<%end%>
+
+</tbody>
+</table>
+
