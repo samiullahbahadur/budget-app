@@ -1,6 +1,22 @@
-<h1>Add new category</h1>
-<%= form_with model: @group, url: user_groups_path(@user) do |form|%>
-    <%= form.text_field :name, placeholder: 'Enter Category name'%>
-    <%= form.text_field :icon, placeholder: 'Enter group icone url'%>
-    <%= form.submit%>
-<%end%>
+
+
+
+<h1>Add NEW Category</h1>
+
+<%= form_with model: @group, url: user_groups_path(@user) do |e|%>
+    <div class="mb-3">
+        <%= e.label :Name, class:"form-label" %><br />
+        <%= e.text_field :name, autofocus: true, class:"form-control",  placeholder:"Enter Entity Name" %>
+    </div> 
+    <div class="mb-3">
+        <%= e.label :image, class:"form-label" %><br />
+        <%= e.file_field :image%>
+     </div>
+
+     <div class="mb-3">
+    <%= e.submit "Add Entity", class:"btn btn-primary" %>
+     </div>
+  
+
+    <% end %>
+
