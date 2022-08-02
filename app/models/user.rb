@@ -6,5 +6,5 @@ class User < ApplicationRecord
   validates :firstname, presence: true
   validates :lastname, presence: true
   has_many :groups, dependent: :delete_all
-  has_many :entities,dependent: :delete_all
+  has_many :entities, dependent: :delete_all
 end
