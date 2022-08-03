@@ -1,19 +1,17 @@
-<h1>Add NEW Entities</h1>
+<p class="offconvase"> TRANSACTIONS </p>
 
 <%= form_with model: @entity, url: user_group_entities_path   do |e| %>
+    <div class="login-header">
+        <%= link_to image_tag("arrow-left.svg", alt: "back", class: "arrow-back"), user_group_entities_path %>
+        <h2>ADD TRANSACTION</h2>
+        <%= e.submit "Save", class:'login-top-btn' %>
+    </div>
+
     <div class="mb-3">
-        <%= e.label :Name, class:"form-label" %><br />
-        <%= e.text_field :name, autofocus: true, class:"form-control",  placeholder:"Enter Entity Name" %>
+        <%= e.text_field :name, autofocus: true, class:"form-control",  placeholder:"Transaction name" %>
     </div> 
     <div class="mb-3">
-        <%= e.label :Amount, class:"form-label" %><br />
-        <%= e.number_field :amount, autofocus: true, class:"form-control",  placeholder:"Enter Entity Amount" %>
-     </div>
+        <%= e.number_field :amount, autofocus: true, class:"form-control",  placeholder:"Transaction amount" %>
+    </div>
 
-     <div class="mb-3">
-    <%= e.submit "Add Entity", class:"btn btn-primary" %>
-     </div>
-  
-
-    <% end %>
-
+<% end %>
