@@ -1,41 +1,11 @@
-
-
-
-<h1 align="center"> All Categories</h1>
-
- 
-<span   align="right">
-<%= link_to "Add New Category", new_user_group_path(@user), class:"nav-link"%></span>
- 
-
-<table  class="ui fixed table  table-bordered table-striped ">
-<thead>
-<tr>
-<th> Name</th>
-<th> Icon</th>
-<th> Action</th>
-</tr>
-</thead>
-<tbody>
-
-<% @group.each do |g|%>
-
-    <tr>
-       <td> 
-       <%= link_to g.name, user_group_entities_path(@user, g.id), class:'nav-link' %>
-       </td>
-            <td> 
-            <% if g.image.attached? %>
-              <%= image_tag  g.image, class:'images' %>  
-              <%end %>
-       </td>
-     <td>
-       <%= button_to 'Remove', user_group_path(g.user_id, g.id), method: :delete,   class:' btn btn-outline-danger btn-sm' %>  </td>
-         
-     
-
-     </tr>
+<p class="offconvase"> CATEGORIES </p>
+<%@groups.each do |g|%>
+    <div class="category-card">
+        <%= image_tag g.image, class: 'category-image' if g.image.attached?%>
+        <%= link_to g.name, user_group_entities_path(@user, g.id) %>
+        <strong><%= number_to_currency g.entities.where(user: current_user).sum(:amount)%></strong>
+    </div>
 <%end%>
-</tbody>
-</table>
-
+<div class="category-container">
+    <%= link_to 'Add a new Category', new_user_group_path(@user), class: 'add-category-btn'%>
+</div>
