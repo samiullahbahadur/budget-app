@@ -1,36 +1,15 @@
-
-<h1 align="center"> All Entities</h1>
-
- 
-<span   align="right">
-<%= link_to "Add new Entities", new_user_group_entity_path , class:'nav-link' %></span>
- 
-
-<table  class="ui fixed table  table-bordered table-striped ">
-<thead>
-<tr>
-<th> Name</th>
-<th> Amount</th>
-
-<th> Action</th>
-<span> Totle:  <%= @total %></sapn>
-
-</tr>
-</thead>
-<tbody>
-
-<% @entity.each do |e|%>
-
-    <tr>
-       <td> <%=  e.name %> </td>
-       <td> <%=  e.amount %> </td>
-     
-     <td>
-       <%= button_to 'Remove', user_group_entity_path(e.user_id, e.group_id, e.id), method: :delete,   class:' btn btn-outline-danger btn-sm' %>  </td>
-
-     </tr>
-<%end%>
-
-</tbody>
-</table>
-
+<p class="offconvase"> TRANSACTIONS </p>
+<div class="transaction-header">
+    <span><%= @groups.name%></span>
+    <span class="bold"><%= number_to_currency @entity.sum(:amount)%></span>
+</div>
+    <% @entity.each do |e|%>
+        <div class="transaction-card">
+           <span><%=  e.name %></span>
+           <span class="bold"><%= number_to_currency  e.amount %></span>
+        </div>
+    <%end%>
+<div class="category-container transaction-btn">
+<%= link_to 'Back', user_groups_path, class: 'add-category-btn'%>
+<%= link_to "add a new transaction", new_user_group_entity_path, class:'add-category-btn' %>
+</div>
