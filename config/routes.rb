@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'splashs/index'
   devise_for :users
   root 'groups#index'
   resources :users, only: :index do
