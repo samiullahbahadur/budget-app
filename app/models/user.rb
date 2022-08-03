@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :lastname, presence: true
   has_many :groups, dependent: :delete_all
   has_many :entities, dependent: :delete_all
+  has_one_attached :avatar
 end
