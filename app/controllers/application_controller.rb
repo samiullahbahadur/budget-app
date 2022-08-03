@@ -7,12 +7,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-private
-def authenticate_user!
-  if user_signed_in?
-    super
-  else
-    redirect_to splashs_index_path
+  private
+
+  def authenticate_user!
+    if user_signed_in?
+      super
+    else
+      redirect_to splashs_index_path
+    end
   end
-end
 end

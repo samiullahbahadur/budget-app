@@ -10,7 +10,7 @@ class EntitiesController < ApplicationController
     @entity = Entity.new
   end
 
-  def create 
+  def create
     @entity = Entity.new(entity_params)
     @entity.user = current_user
     @entity.group = Group.find(params[:group_id])
@@ -22,9 +22,10 @@ class EntitiesController < ApplicationController
       render 'new'
     end
   end
-  
+
   private
-  def entity_params 
+
+  def entity_params
     params.require(:entity).permit(:name, :amount)
   end
 end
