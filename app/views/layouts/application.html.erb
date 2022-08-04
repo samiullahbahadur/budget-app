@@ -24,9 +24,11 @@
     <% if user_signed_in? %>
       <%= render 'shared/navbar'%>
     <% end %>
-
+ 
     <%= render 'shared/messages' %>
+   
 
     <%= yield %>
+
   </body>
 </html>
