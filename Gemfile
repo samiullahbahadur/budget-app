@@ -70,6 +70,12 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+group :development, :test do
+  gem 'database_cleaner'
+  gem 'debug'
+  gem 'rspec-rails'
+
+end
 
 gem 'devise'
 gem "letter_opener"
