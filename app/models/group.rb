@@ -1,7 +1,8 @@
-class Group < ApplicationRecord
-  validates :name, presence: true
 
-  has_one_attached :image
+
+class Group < ApplicationRecord
   belongs_to :user
-  has_many :entities, dependent: :delete_all
+  has_many :entities
+  validates :name, presence: {message: "Name can't be blank!"}
+  has_one_attached :image
 end
