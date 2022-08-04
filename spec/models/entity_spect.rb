@@ -18,7 +18,7 @@ RSpec.describe Entity, type: :model do
   end
 
   it 'Create an invalid transaction due to wrong amount' do
-    transaction = Entity.new(user: @user, group: @group, name: 'Fruits', amount:'' )
+    transaction = Entity.new(user: @user, group: @group, name: 'Fruits', amount: '')
     expect(transaction).to be_invalid
     expect(transaction.errors[:amount][0]).to be == 'Amount must be greater than Zero (0)'
   end

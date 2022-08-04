@@ -6,7 +6,6 @@ RSpec.describe 'Transactions pages', type: :feature do
     @group = Group.new(user: @user, name: 'Debit')
     @transaction = Entity.new(user: @user, group: @group, name: 'Fruit', amount: 100)
     @group.save
-
   end
 
   before :each do
@@ -41,5 +40,4 @@ RSpec.describe 'Transactions pages', type: :feature do
     expect(Entity.last.name).to be == 'Apples'
     Entity.last.destroy
   end
-
 end
