@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Category pages', type: :feature do
   before :all do
-    @user = User.new(firstname: 'Sediq', lastname: 'badakhsh', email: 'admin@gmail.com', password: '123465')
+    @user = User.new(firstname: 'Samiull ', lastname: 'bahadur', email: 'admin@gmail.com', password: '123465')
     @group = Group.new(user: @user, name: 'Debit')
     @user.save
     @group.save

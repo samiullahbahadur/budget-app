@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Transactions pages', type: :feature do
   before :all do
-    @user = User.new(firstname: 'Sediq', lastname: 'badakhsh', email: 'sediq@gmail.com', password: '123456')
+    @user = User.new(firstname: 'samiullah', lastname: 'Bahadur', email: 'sam@gmail.com', password: '123456')
     @group = Group.new(user: @user, name: 'Debit')
     @transaction = Entity.new(user: @user, group: @group, name: 'Fruit', amount: 100)
     @group.save
